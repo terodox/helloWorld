@@ -25,11 +25,11 @@ var app = {
 };
 $(document).ready(function () {
   var $commandArea = $('div.commandArea');
-  $('button.runCalculator').on('click', function () {
+  $('button.runCalculator').on('tap', function () {
     $('.app').hide();
     $('.calculator').show();
   });
-  $('button.calculatorButton').on('click', function () {
+  $('button.calculatorButton').on('tap', function () {
     if($commandArea.text() === '0') {
      $commandArea.text('');
     }
