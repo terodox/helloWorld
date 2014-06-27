@@ -17,9 +17,47 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        listeningElement.innerHTML = "Device is now ready";
+        $('.listening').text("Device is now ready");
+        $('p.listening').hide();
+        $('p.ready').show();
         console.log('Received Event: ' + id);
     }
 };
+$(document).ready(function () {
+  var $commandArea = $('div.commandArea');
+  $('button.runCalculator').on('click', function () {
+    $('.app').hide();
+    $('.calculator').show();
+  });
+  $('button.calculatorButton').on('click', function () {
+    if($commandArea.text() === '0') {
+     $commandArea.text('');
+    }
+    var currentCommand = $(this).val();
+    if($.isNumeric(currentCommand)) {
+      //This middle '' prevents an auto convert to numeric and hence adding the two things together
+      $commandArea.text($commandArea.text() + '' + currentCommand);
+    } else {
+      switch(currentCommand.toLowerCase()) {
+        case "clear": 
+          $commandArea.text(0);
+          break;
+        case "equal":
+          $commandArea.text(eval($commandArea.text()));
+          break;
+        case "add":
+          $commandArea.text($commandArea.text() + '+');
+          break;
+        case "subtract":
+          $commandArea.text($commandArea.text() + '-');
+          break;
+        case "divide":
+          $commandArea.text($commandArea.text() + '/');
+          break;
+        case "multiply":
+          $commandArea.text($commandArea.text() + 'x');
+          break;
+      }
+    }
+  });
+});

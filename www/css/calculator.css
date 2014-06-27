@@ -1,0 +1,21 @@
+div.calculator {
+  display: none;
+  height: 100%;  
+}
+div.row {
+  height: 28%;
+  width: 100%;
+}
+div.row button {
+  margin:0;
+  padding: 0;
+  height: 100%;
+  width: 24.5%;
+  font-size: 20vw;
+}
+div.commandArea {
+  height: 14%;
+  width: 100%;
+  font-size: 12vh;
+  text-align: right;
+}
