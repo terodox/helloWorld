@@ -43,7 +43,7 @@ $(document).ready(function () {
           $commandArea.text(0);
           break;
         case "equal":
-          $commandArea.text(eval($commandArea.text()));
+          $commandArea.text(eval($commandArea.text().replace(/x/g, '*'));
           break;
         case "add":
           $commandArea.text($commandArea.text() + '+');
